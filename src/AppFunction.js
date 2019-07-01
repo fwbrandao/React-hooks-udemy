@@ -16,14 +16,14 @@ const App = () => {
             <h2>Counter</h2>
             <button onClick={incrementCount}>I was clicked {count} times</button>
             <h2>Toggle Light</h2>
-                <div
+                <img
+                    src={isOn ? 'https://icon.now.sh/highlight/fd0' : 'https://icon.now.sh/highlight/aaa'}
+                    alt="flashlight"
                     onClick={toggleLight}
                     style={{
                         height: "50px",
                         width: "50px",
-                        background: isOn ? "yellow" : "grey"
-                    }}>
-                </div>
+                    }}/>
             </>
 };
 
