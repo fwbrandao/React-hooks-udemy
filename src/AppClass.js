@@ -3,16 +3,27 @@ import React, { Component } from 'react';
 class App extends Component {
     state = {
         count: 0,
-        isOn: false
+        isOn: false,
+        x: null,
+        y: null
      }
 
-     componentDidMount() {
+    componentDidMount() {
         document.title = `Clicked ${this.state.count} times`;
-     }
+        window.addEventListener("mousemove", this.handleMouseMove);
+    }
 
-     componentDidUpdate() {
+    componentDidUpdate() {
         document.title = `Clicked ${this.state.count} times`;
-     }
+        window.removeEventListener("mousemove", this.handleMouseMove);
+    }
+
+    handleMouseMove = event => {
+        this.setState({
+            x: event.pageX,
+            y: event.pageY
+        });
+    };
 
     incrementCount = () => {
         this.setState(prevState => ({
@@ -41,6 +52,9 @@ class App extends Component {
                         background: isOn ? "yellow" : "grey"
                     }}>
                 </div>
+                <h2>Mouse Position</h2>
+                <p>X position: {this.state.x}</p>
+                <p>Y position: {this.state.y}</p>
             </>
         )
     }
