@@ -18,6 +18,11 @@ class App extends Component {
         window.removeEventListener("mousemove", this.handleMouseMove);
     }
 
+    componentWillUnmount() {
+        window.removeEventListener("mousemove",
+        this.handleMouseMove);
+    }
+
     handleMouseMove = event => {
         this.setState({
             x: event.pageX,
